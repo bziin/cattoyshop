@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="header">
+    <th:block th:headers="css">
+        <style>
+            /* 네비게이션 링크들의 글씨 크기를 조정합니다. */
+            .navbar-nav .nav-link {
+                font-size: 20px; /* 원하는 크기로 조절하세요 */
+            }
+
+            /* 네비게이션 로고나 브랜드 이름의 글씨 크기를 조정합니다. */
+            .navbar-brand {
+                font-size: 24px; /* 원하는 크기로 조절하세요 */
+            }
+
+            /* 드롭다운 메뉴의 글씨 크기를 조정합니다. */
+            .dropdown-menu .dropdown-item {
+                font-size: 16px; /* 원하는 크기로 조절하세요 */
+            }
+        </style>
+    </th:block>
+            <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">HOME</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarsExample07" style="">
+
+
+                <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                            <a class="nav-link" href="/admin/item/new">상품 등록</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                            <a class="nav-link" href="/admin/items">상품 관리</a>
+                        </li>
+                        <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">내 정보</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown07">
+                                <a class="dropdown-item" sec:authorize="isAuthenticated()"
+                                   href="/members/loginInfo">마이 페이지</a>
+                                <a class="dropdown-item" sec:authorize="isAuthenticated()"
+                                href="/orders">구매이력</a>
+                            </div>
+                        </li>
+                        <li class="nav-item" sec:authorize="isAuthenticated()">
+                            <a class="nav-link" href="/cart">장바구니</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="isAnonymous()">
+                            <a class="nav-link" href="/members/login">로그인</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="isAuthenticated()">
+                            <a class="nav-link" href="/members/logout">로그아웃</a>
+                        </li>
+                    </ul>
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0 justify-content-end" th:action="@{/}" method="get">
+                    <div class="d-flex">
+                        <input name="searchQuery" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+</div>
+</div>
+
+
+</html>

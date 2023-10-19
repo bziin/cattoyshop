@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<!-- 사용자 CSS 추가 -->
+
+<th:block layout:fragment="css">
+  <style>
+
+    .login-form {
+      max-width: 800px; /* 크기를 늘림 */
+      margin: 0 auto; /* 가운데 정렬 */
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* 입력 필드 스타일 */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333333;
+      font-size: 20px; /* 글씨 크기 조정 */
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="password"]:focus {
+      border-color: #007bff;
+    }
+
+    /* 로그인 버튼 스타일 */
+    .btn-login {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-login:hover {
+      background-color: #0056b3;
+    }
+
+    /* 오류 메시지 스타일 */
+    .error {
+      color: #dc3545;
+      font-size: 16px; /* 글씨 크기 조정 */
+      margin-top: 5px;
+    }
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="row justify-content-center mt-4">
+    <div class="card-body login-form">
+      <div class="text-start form-group">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <label for="password">비밀번호 확인</label>
+        <input type="password" id="password" name="password" class="form-control">
+<!--        <small class="error">비밀번호가 맞지 않습니다.</small>-->
+      </div>
+      <div class="text-center">
+        <button class="btn btn-login w-100 my-4 mb-2" id="checkPwd">비밀번호 확인</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    /*<![CDATA[*/
+    $(document).ready(function() {
+      $('#checkPwd').click(function() {
+        const checkPassword = $('#password').val().trim();
+
+        if (!checkPassword) {
+          alert("비밀번호를 입력하세요.");
+          return;
+        }
+
+        $.ajax({
+          type: 'GET',
+          url: '/rest/checkPwdForm',
+          data: {'checkPassword': checkPassword},
+          dataType: "json", // 변경된 부분: "json"으로 데이터 타입 설정
+          success: function(result) {
+            console.log(result);
+            if (result) {
+              console.log("비밀번호 일치");
+              window.location.href = "/rest/updateForm";
+            } else {
+              console.log("비밀번호 틀림");
+              alert("비밀번호가 맞지 않습니다.");
+              // 비밀번호가 틀렸을 때 처리
+            }
+          },
+          error: function(error) {
+            alert(JSON.stringify(error));
+          }
+        });
+      });
+    });
+    /*]]>*/
+  </script>
+</div>
+</html>
