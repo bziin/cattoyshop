@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+  <style>
+    /* 전체 페이지 스타일 */
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-form {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333; /* 텍스트 색상을 약간 어두운 회색으로 변경 */
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px; /* 패딩을 조금 더 크게 조정 */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s; /* 변화를 부드럽게 만듦 */
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #007bff; /* 포커스 시 밝은 파란색으로 테두리 색상 변경 */
+    }
+
+    .error {
+      color: #dc3545;
+      margin-top: 5px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      margin-top: 10px;
+      width: 100%;
+    }
+
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="row justify-content-center mt-4">
+    <form role="form" method="post" action="/members/login" class="login-form">
+      <div class="form-group">
+        <label for="email">이메일 주소</label>
+        <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요">
+      </div>
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="비밀번호 입력">
+        <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button class="btn btn-primary">로그인</button>
+        <button type="button" class="btn btn-secondary" onClick="location.href='/members/new'">회원가입</button>
+        <button type="button" class="btn btn-secondary" onClick="location.href='/members/newAdmin'">관리자 회원가입</button>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+      </div>
+</form>
+  </div>
+</div>
+</div>
+
+</html>
