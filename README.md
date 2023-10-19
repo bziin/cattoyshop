@@ -25,3 +25,9 @@ Spring Security를 적용하면서 사용자 및 권한 관리에 대한 복잡�
 - DataBase: MySQL, MySQL Workbench
 
 ### 기능소개
+
+-ERD
+
+<img src = "https://file.notion.so/f/f/13a56783-7604-415c-8d4c-d849d6bc8db1/99b371d6-e797-4687-b564-2c406a3e8810/Untitled.png?id=d8fb3db2-0898-4456-8222-7ff467999ad3&table=block&spaceId=13a56783-7604-415c-8d4c-d849d6bc8db1&expirationTimestamp=1697788800000&signature=9uvmcIkPuyc-t7gVElQzKsexBTd5NXwontZFUSEQMNA&downloadName=Untitled.png" width=90%></img>
+
+
