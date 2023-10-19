@@ -1,6 +1,7 @@
 # cattoyshop
 SpringSecurity와 JPA를 이용한 온라인 쇼핑몰
 
+----
 ## 프로젝트 소개
 
 
@@ -12,11 +13,13 @@ Spring Security를 적용하면서 사용자 및 권한 관리에 대한 복잡�
 특히, 동적 쿼리 작성 및 복잡한 데이터 모델을 다루는 것이 새로웠습니다. 
 그러나 이러한 어려움을 극복하고 끊임없이 학습하면서 프로젝트를 완성하는 과정이 큰 성취감을 주었습니다.
 
+----
 ### 개발기간
 - 2023.07.01 ~ 2023.09.07
   
 ### 개발환경
--    ```Java11```   ```Spring2.7.7``` , gradle, JPA
+-    ```Java11```   ```SpringBoot``` , gradle, JPA
+  
 - Html, CSS, JavaScript, Thymeleaf, BootStrap
 - IDE: IntelliJ Ultimate
 - DataBase: MySQL, MySQL Workbench
