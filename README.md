@@ -16,7 +16,7 @@ Spring Security를 적용하면서 사용자 및 권한 관리에 대한 복잡�
 - 2023.07.01 ~ 2023.09.07
   
 ### 개발환경
--     ```Java11```    ```Spring2.7.7```, gradle, JPA
+-    ```Java11```   ```Spring2.7.7``` , gradle, JPA
 - Html, CSS, JavaScript, Thymeleaf, BootStrap
 - IDE: IntelliJ Ultimate
 - DataBase: MySQL, MySQL Workbench
