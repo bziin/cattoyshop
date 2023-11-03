@@ -10,6 +10,7 @@ import com.shop.shop.entity.ItemImg;
 import com.shop.shop.repository.ItemImgRepository;
 import com.shop.shop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,7 @@ public class ItemService {
     }
 
     @Transactional(readOnly = true)
+    @Cacheable("products")
     public ItemFormDto getItemDtl(Long itemId){
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
         List<ItemImgDto> itemImgDtoList = new ArrayList<>();
