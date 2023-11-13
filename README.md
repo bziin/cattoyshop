@@ -38,9 +38,12 @@ Cache란, 한번 처리한 데이터를 임시로 저장소에 저장하는 것�
 
 - Item조회 기능에 적용
   <적용 전>
-  <img src= "https://user-images.githubusercontent.com/107683186/282390559-8f5cd6ca-6ee3-4d21-a369-66c533397823.JPG" width=90%></img>
+  
+  <img src= "https://user-images.githubusercontent.com/107683186/282390559-8f5cd6ca-6ee3-4d21-a369-66c533397823.JPG" width=40%></img>
+  
   <적용 후>
-  <img src = "https://user-images.githubusercontent.com/107683186/282390549-7f89c4e9-92c3-41d6-b031-e2a7b9171b0a.JPG" width=90%></img>
+  
+  <img src = "https://user-images.githubusercontent.com/107683186/282390549-7f89c4e9-92c3-41d6-b031-e2a7b9171b0a.JPG" width=40%></img>
 
   
 
