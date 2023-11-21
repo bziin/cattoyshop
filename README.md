@@ -24,6 +24,8 @@ Spring Security를 적용하면서 사용자 및 권한 관리에 대한 복잡�
 - IDE: IntelliJ Ultimate
 - DataBase: MySQL, MySQL Workbench
 
+----
+
 ### 기능소개
 
 -ERD
