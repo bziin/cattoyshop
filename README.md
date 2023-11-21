@@ -49,7 +49,6 @@ Cache란, 한번 처리한 데이터를 임시로 저장소에 저장하는 것�
  --- 
 
 
-
 ##### 메인화면
 <img src= "https://user-images.githubusercontent.com/107683186/278924646-41b7ac94-f720-41c7-90fa-74e6cf0490f3.JPG" width=90%></img>
 
